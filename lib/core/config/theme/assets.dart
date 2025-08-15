@@ -1,0 +1,8 @@
+class AppAssets {
+  static const String star = 'assets/icons/star.svg';
+  static const String star1 = 'assets/icons/star1.svg';
+  static const String menu1 = 'assets/icons/menu1.svg';
+  static const String menu2 = 'assets/icons/menu2.svg';
+  static const String search = 'assets/icons/search.svg';
+  static const String back = 'assets/icons/back.svg';
+}
