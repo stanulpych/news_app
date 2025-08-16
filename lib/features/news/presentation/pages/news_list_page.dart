@@ -21,11 +21,11 @@ class NewsListPage extends StatefulWidget {
 class _NewsListPageState extends State<NewsListPage> {
   String _selectedCategory = 'General';
   final List<String> _categories = const [
-    'Health',
     'Business',
-    'Entertainment',
     'General',
+    'Health',
     'Science',
+    'Entertainment',
     'Sports',
     'Technology',
   ];
