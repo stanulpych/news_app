@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_app/features/news/domain/entities/news.dart';
 import 'package:news_app/features/news/domain/usecases/add_news_usecase.dart';
