@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/config/theme/app_colors.dart';
+import 'package:news_app/core/config/theme/app_text_styles.dart';
 import 'package:news_app/core/routes/app_routes.dart';
 import 'package:news_app/core/utils/date_formatter.dart';
 import 'package:news_app/core/widgets/custom_botton_nav_bar.dart';
@@ -27,7 +28,7 @@ class FavoritesPage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 100),
                       child: Text(
                         'У вас пока нет сохраненных новостей. Добавьте их, нажав на звёздочку!',
-                        style: TextStyle(fontSize: 18, color: AppColors.gray),
+                        style: AppTextStyles.body,
                         textAlign: TextAlign.center,
                       ),
                     ),

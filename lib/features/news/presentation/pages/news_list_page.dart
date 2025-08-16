@@ -121,7 +121,7 @@ class _NewsListPageState extends State<NewsListPage> {
           return const Center(child: CircularProgressIndicator(color: AppColors.black));
         } else if (newsState is NewsLoaded) {
           if (newsState.news.isEmpty) {
-            return const Center(child: Text('Нет новостей'));
+            return const Center(child: Text('Нет новостей' , style: AppTextStyles.body));
           }
           return BlocBuilder<FavoritesBloc, FavoritesState>(
             builder: (context, favoritesState) {
@@ -129,7 +129,7 @@ class _NewsListPageState extends State<NewsListPage> {
                 final List<String> savedNewsTitles = favoritesState.news.map((n) => n.title!).toList();
 
                 return ListView.builder(
-                  padding: const EdgeInsets.only(top: 16, bottom: 100),
+                  padding: const EdgeInsets.only(bottom: 100),
                   itemCount: newsState.news.length,
                   itemBuilder: (context, index) {
                     final news = newsState.news[index];
