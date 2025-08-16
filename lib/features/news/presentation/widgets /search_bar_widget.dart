@@ -80,6 +80,10 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                   borderSide: const BorderSide(color: AppColors.black, width: 1),
                   borderRadius: BorderRadius.circular(8),
                 ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: const BorderSide(color: AppColors.black, width: 1),
+                  borderRadius: BorderRadius.circular(8),
+                ),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.close, size: 28, color: AppColors.black),
                   onPressed: () {

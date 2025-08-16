@@ -19,7 +19,7 @@ class FavoritesPage extends StatelessWidget {
           BlocBuilder<FavoritesBloc, FavoritesState>(
             builder: (context, state) {
               if (state is FavoritesLoading) {
-                return const Center(child: CircularProgressIndicator());
+                return const Center(child: CircularProgressIndicator(color: AppColors.black));
               } else if (state is FavoritesLoaded) {
                 if (state.news.isEmpty) {
                   return const Center(

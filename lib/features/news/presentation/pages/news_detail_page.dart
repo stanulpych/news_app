@@ -135,7 +135,7 @@ class NewsDetailPage extends StatelessWidget {
                                   width: double.infinity,
                                   height: 220,
                                   child: const Center(
-                                    child: CircularProgressIndicator(),
+                                    child: CircularProgressIndicator(color: AppColors.black),
                                   ),
                                 );
                               },

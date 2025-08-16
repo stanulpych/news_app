@@ -6,14 +6,13 @@ import 'package:news_app/core/config/theme/app_text_styles.dart';
 class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
-      // Основные цвета
+      useMaterial3: false,
       primaryColor: AppColors.white,
       scaffoldBackgroundColor: AppColors.white,
       canvasColor: AppColors.white,
       hintColor: AppColors.gray,
       splashColor: AppColors.white.withOpacity(0.1),
 
-      // AppBar
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.white,
         foregroundColor: AppColors.black,
@@ -23,7 +22,6 @@ class AppTheme {
         iconTheme: IconThemeData(color: AppColors.black),
       ),
 
-      // BottomNavigationBar
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: AppColors.white,
         selectedItemColor: AppColors.mainBlue,

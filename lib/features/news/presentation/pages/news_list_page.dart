@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:news_app/core/config/theme/app_colors.dart';
+import 'package:news_app/core/config/theme/app_text_styles.dart';
 import 'package:news_app/core/routes/app_routes.dart';
 import 'package:news_app/core/utils/date_formatter.dart';
 import 'package:news_app/core/widgets/custom_botton_nav_bar.dart';
@@ -66,6 +67,7 @@ class _NewsListPageState extends State<NewsListPage> {
             Column(
               children: [
                 _buildCategoriesChips(),
+                SizedBox(height: 10),
                 Expanded(
                   child: _buildNewsList(),
                 ),
@@ -100,11 +102,10 @@ class _NewsListPageState extends State<NewsListPage> {
               label: Text(category),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(16),
+                side: BorderSide.none,
               ),
               backgroundColor: isSelected ? AppColors.mainBlue : AppColors.gray,
-              labelStyle: const TextStyle(
-                color: AppColors.white,
-              ),
+              labelStyle: AppTextStyles.body.copyWith(fontSize: 17, color: AppColors.white),
               onPressed: () => _onCategorySelected(category),
             );
           },
@@ -117,7 +118,7 @@ class _NewsListPageState extends State<NewsListPage> {
     return BlocBuilder<NewsBloc, NewsState>(
       builder: (context, newsState) {
         if (newsState is NewsLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(color: AppColors.black));
         } else if (newsState is NewsLoaded) {
           if (newsState.news.isEmpty) {
             return const Center(child: Text('Нет новостей'));
@@ -162,11 +163,31 @@ class _NewsListPageState extends State<NewsListPage> {
                   },
                 );
               }
-              return const Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator(color: AppColors.black));
             },
           );
         } else if (newsState is NewsError) {
-          return Center(child: Text(newsState.message));
+          return Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  icon: const Icon(Icons.refresh, size: 45, color: AppColors.black),
+                  onPressed: () {
+                    context
+                        .read<NewsBloc>()
+                        .add(LoadNews(category: _selectedCategory.toLowerCase()));
+                  },
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  newsState.message,
+                  textAlign: TextAlign.center,
+                  style: AppTextStyles.body,
+                ),
+              ],
+            ),
+          );
         }
         return const SizedBox();
       },

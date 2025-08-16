@@ -70,6 +70,7 @@ class NewsCard extends StatelessWidget {
                                 ? loadingProgress.cumulativeBytesLoaded /
                                 loadingProgress.expectedTotalBytes!
                                 : null,
+                            color: AppColors.black,
                           ),
                         ),
                       );
