@@ -40,6 +40,7 @@ class FavoritesPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final news = state.news[index];
                     return NewsCard(
+                      isNeedShowStar: true,
                       news: news,
                       imageUrl: news.imageUrl!,
                       title: news.title!,
